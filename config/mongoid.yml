@@ -8,19 +8,17 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: gorilla_development
+  database: template_dev
 
 test:
   <<: *defaults
-  database: gorilla_test
+  database: template_test
 
+# set these environment variables on your prod server
 production:
-  # on heroku, this just works
-  uri: <%= ENV['MONGOHQ_URL'] %>
-  
-  # set these environment variables on your prod server
-  # host: <%= ENV['MONGOID_HOST'] %>
-  # port: <%= ENV['MONGOID_PORT'] %>
-  # username: <%= ENV['MONGOID_USERNAME'] %>
-  # password: <%= ENV['MONGOID_PASSWORD'] %>
-  # database: <%= ENV['MONGOID_DATABASE'] %>
+    uri: <%= ENV['MONGOHQ_URL'] %>
+    # host: <%= ENV['MONGOID_HOST'] %>
+    # port: <%= ENV['MONGOID_PORT'] %>
+    # username: <%= ENV['MONGOID_USERNAME'] %>
+    # password: <%= ENV['MONGOID_PASSWORD'] %>
+    # database: <%= ENV['MONGOID_DATABASE'] %>
