@@ -1,0 +1,100 @@
+/* MIXINS */
+/* COLORS */
+/* IMPORTS */
+.flash-message {
+  padding: 18px;
+  width: 784px;
+  margin: 12px 70px 0;
+  background-color: #fff;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px; }
+  .flash-message p {
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+
+.flash-message.modal {
+  width: auto;
+  margin: 0;
+  margin-bottom: 18px; }
+  .flash-message.modal p {
+    font-size: 14px;
+    font-weight: normal; }
+
+.flash-message.confirm {
+  color: #456407;
+  background-color: rgba(158, 207, 128, 0.5); }
+
+.flash-message.error,
+.flash-message.alert {
+  color: #840606;
+  background-color: rgba(220, 112, 130, 0.5); }
+
+.flash-message.notice {
+  color: #08526e;
+  background-color: rgba(82, 175, 210, 0.5); }
+
+#error_explanation {
+  border: 1px solid #840606;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  margin-bottom: 20px;
+  background-color: #fbfaf8;
+  padding: 12px; }
+  #error_explanation h2 {
+    margin-bottom: 8px; }
+  #error_explanation li {
+    list-style-type: none;
+    color: #840606; }
+
+/* STYLES */
+/* basic */
+a, a:visited {
+  color: #096f95;
+  text-decoration: none; }
+
+a:hover {
+  color: #178cb8; }
+
+a:active {
+  color: #28abdc; }
+
+em {
+  font-style: oblique; }
+
+span.positive {
+  color: #3b9604;
+  font-weight: bold; }
+
+span.alert {
+  color: #bd6c02;
+  font-weight: bold; }
+
+span.negative {
+  color: #840606;
+  font-weight: bold; }
+
+/* end basic */
+/* body */
+body {
+  background-color: #f6f4e8;
+  background-image: url("../images/body_bg_tile.gif");
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.008); }
+
+body.modal {
+  background-image: url("../images/body_bg_tile_dark.gif"); }
+
+h1.logo {
+  height: 29px;
+  width: 172px;
+  background-image: url("../images/streamrollr_small_logo.png");
+  background-repeat: no-repeat;
+  margin: 28px 0 0; }
+
+body.modal h1.logo {
+  margin: 48px auto; }
+
+/* end body */

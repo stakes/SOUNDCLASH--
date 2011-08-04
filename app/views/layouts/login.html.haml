@@ -1,0 +1,49 @@
+!!! 5
+!!!
+%html
+    :plain
+        <!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+        <!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+        <!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+        <!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    %head
+        %title Gorilla
+        = stylesheet_link_tag 'boilerplate.css'
+        = stylesheet_link_tag '960.css'
+        = javascript_include_tag 'libs/modernizr-1.7.min.js'
+        = csrf_meta_tag
+
+    %body{ :data => {:controller => params[:controller], :action => params[:action]} }
+    
+        %header
+            .container_12
+                %h1.logo.ir Streamrollr
+                - if user_signed_in?
+                                        
+                    %ul.user-nav
+                        %li
+                            %a{ :href => '/users/sign_out' } Sign out
+                - else
+                    %ul.user-nav
+                        %li
+                            %a{ :href => '/users/sign_in' } Sign in
+                        %li
+                            %a{ :href => '/users/sign_up' } Sign up
+                
+
+        #view-content.container_16
+        
+            #flash-message-container
+                - flash.each do |name, msg|
+                    = content_tag :div, content_tag(:p, msg), :class => 'flash-message '+name.to_s
+            
+            = yield
+            
+        
+        %script{ :src => '//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js' }
+        :javascript
+            window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")
+        %script{ :src => 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js' }
+        = javascript_include_tag 'rails.js'
+        = javascript_include_tag 'libs/plugins/jquery.validate.js'
+        = javascript_include_tag 'application.js'

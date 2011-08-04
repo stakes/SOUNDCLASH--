@@ -1,0 +1,19 @@
+#error_explanation {
+    border: 1px solid $text-negative-color;
+    @include roundedbox(6px);
+    margin-bottom: 20px;
+    background-color: #fbfaf8;
+    padding: 12px;
+    
+    h2 {
+        
+        margin-bottom: 8px;
+        
+    }
+    
+    li {
+        
+        list-style-type: none;
+        color: $text-negative-color;
+    }
+}

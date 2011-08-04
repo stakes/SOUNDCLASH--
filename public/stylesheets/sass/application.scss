@@ -1,0 +1,185 @@
+/* MIXINS */
+
+@mixin rounded($side, $radius: 12px) {
+  border-#{$side}-radius: $radius;
+  -moz-border-radius-#{$side}: $radius;
+  -webkit-border-#{$side}-radius: $radius;
+}
+
+@mixin roundedbox($radius: 12px) {
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+}
+
+@mixin shadowedbox($l: 0, $t: 0, $blur: 5px, $opacity: 1) {
+    -moz-box-shadow: $l $t $blur rgba(0,0,0,$opacity);
+    -webkit-box-shadow: $l $t $blur rgba(0,0,0,$opacity);
+    box-shadow: $l $t $blur rgba(0,0,0,$opacity);
+}
+
+@mixin insetshadowed($l: 0, $t: 0, $blur: 5px, $opacity: 1, $r: 0, $g: 0, $bl: 0) {
+    -moz-box-shadow: inset $l $t $blur rgba($r,$g,$bl,$opacity);
+    -webkit-box-shadow: inset $l $t $blur rgba($r,$g,$bl,$opacity);
+    box-shadow: inset $l $t $blur rgba($r,$g,$bl,$opacity);
+}
+
+@mixin headergradient {
+    background: rgb(247,247,247);
+    background: -moz-linear-gradient(top, rgb(247,247,247) 0%, rgb(193,193,193) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(247,247,247)), color-stop(100%,rgb(193,193,193)));
+    background: -webkit-linear-gradient(top, rgb(247,247,247) 0%,rgb(193,193,193) 100%);
+    background: -o-linear-gradient(top, rgb(247,247,247) 0%,rgb(193,193,193) 100%);
+    background: -ms-linear-gradient(top, rgb(247,247,247) 0%,rgb(193,193,193) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#c1c1c1',GradientType=0 );
+    background: linear-gradient(top, rgb(247,247,247) 0%,rgb(193,193,193) 100%);
+}
+
+@mixin whitets($opacity: 1) {
+    text-shadow: 0 1px 0 rgba(255,255,255,$opacity);
+}
+
+@mixin blackts($opacity: 1) {
+    text-shadow: 0 -1px 0 rgba(0,0,0,$opacity);
+}
+
+@mixin inputshadow {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .15);
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, .15);
+    -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, .15);
+}
+
+@mixin greybutton {
+//  color: #606060;
+	border: solid 1px #b7b7b7;
+	background: #ddd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#bbb));
+	background: -moz-linear-gradient(top,  #eee,  #bbb);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#bbbbbb');
+}
+
+@mixin orangebutton {
+	color: #825300;
+	border: solid 1px #ae7107;
+	background: #d59629;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f7bd59), to(#d59629));
+	background: -moz-linear-gradient(top,  #f7bd59,  #d59629);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7bd59', endColorstr='#d59629');
+}
+
+@mixin greenbutton {
+	color: #456407;
+	border: solid 1px #6b9a0d;
+	background: #cde69c;
+	background: -webkit-gradient(linear, left top, left bottom, from(#cde69c), to(#a5d24a));
+	background: -moz-linear-gradient(top,  #cde69c,  #a5d24a);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cde69c', endColorstr='#a5d24a');
+}
+
+@mixin headline {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+@mixin subhead {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 2px;
+}
+
+
+
+/* COLORS */
+
+$link-color: #096f95;
+$link-hover-color: #178cb8;
+$link-active-color: #28abdc;
+
+$text-positive-color: #3b9604;
+$text-notice-positive-color: #456407;
+$text-negative-color: #840606;
+$text-alert-color: #bd6c02;
+$text-notice-color: #08526e;
+
+$flash-positive-color: rgba(158,207,128,.5);
+$flash-negative-color: rgba(220,112,130,.5);
+$flash-notice-color: rgba(82,175,210,.5);
+
+
+
+/* IMPORTS */
+
+@import "flashmessages";
+@import "errors";
+
+
+
+/* STYLES */
+
+/* basic */
+
+
+a, a:visited {
+    color: $link-color;   
+    text-decoration: none    
+}
+a:hover {
+    color: $link-hover-color;
+}
+a:active {
+    color: $link-active-color;
+}
+em {
+    font-style: oblique;
+}
+span.positive {
+    color: $text-positive-color;
+    font-weight: bold;
+}
+span.alert {
+    color: $text-alert-color;
+    font-weight: bold;    
+}
+span.negative {
+    color: $text-negative-color;
+    font-weight: bold;
+}
+
+/* end basic */
+
+
+/* body */
+
+body {
+    
+    background-color: #f6f4e8;
+    background-image: url('../images/body_bg_tile.gif');
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.0078125);   
+
+}
+
+body.modal {
+    
+    background-image: url('../images/body_bg_tile_dark.gif')
+    
+}
+
+
+h1.logo {
+    
+    height: 29px;
+    width: 172px;
+    background-image: url('../images/streamrollr_small_logo.png');
+    background-repeat: no-repeat;
+    margin: 28px 0 0;
+    
+}
+
+body.modal h1.logo {
+    
+    margin: 48px auto;
+    
+}
+
+/* end body */

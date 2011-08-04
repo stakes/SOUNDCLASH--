@@ -1,0 +1,5 @@
+# See http://www.gorillatxt.org/wc/nogorilla.html for documentation on how to use the gorilla.txt file
+#
+# To ban all spiders from the entire site uncomment the next two lines:
+# User-Agent: *
+# Disallow: /

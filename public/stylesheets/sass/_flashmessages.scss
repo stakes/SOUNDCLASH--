@@ -1,0 +1,41 @@
+.flash-message {
+    
+    padding: 18px;
+    width: 784px;
+    margin: 12px 70px 0;
+    background-color: #fff;
+    @include roundedbox(6px);
+    
+    p {
+        
+        font-size: 16px;
+        font-weight: bold;
+        @include whitets(.4);
+    }
+    
+}
+
+.flash-message.modal {
+    width: auto;
+    margin: 0;
+    margin-bottom: 18px;
+    
+    p {
+        font-size: 14px;
+        font-weight: normal;
+    }
+}
+
+.flash-message.confirm {
+    color: $text-notice-positive-color;
+    background-color: $flash-positive-color;
+}
+.flash-message.error,
+.flash-message.alert {
+    color: $text-negative-color;
+    background-color: $flash-negative-color;
+}
+.flash-message.notice {
+    color: $text-notice-color;
+    background-color: $flash-notice-color;
+}

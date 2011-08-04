@@ -1,0 +1,14 @@
+development:
+  bucket: blank_dev
+  access_key_id: someid
+  secret_access_key: someaccesskey
+
+test:
+   bucket: blank_dev
+   access_key_id: someid
+   secret_access_key: someaccesskey
+
+production: 
+  bucket: blank
+  access_key_id: someid
+  secret_access_key: someaccesskey
