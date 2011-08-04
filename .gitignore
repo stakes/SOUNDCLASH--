@@ -11,3 +11,4 @@ tmp/**/*
 db/*.sqlite3
 db/data.yml
 vendor/bundle
+dump.rdb

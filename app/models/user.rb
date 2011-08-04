@@ -16,6 +16,10 @@ class User
   def password_required?
     false
   end
+  
+  def email_required?
+    false
+  end
 
   def auth_type
     auth = self.authentications
