@@ -1,4 +1,4 @@
-Gorilla::Application.routes.draw do
+Template::Application.routes.draw do
   
   devise_for :users, :controllers => {:registrations => 'registrations'}
   

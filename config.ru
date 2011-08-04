@@ -4,5 +4,5 @@ require ::File.expand_path('../config/environment',  __FILE__)
 
 require 'resque/server'
 run Rack::URLMap.new \
-  "/"       => Gorilla::Application,
+  "/"       => Template::Application,
   "/resque2140" => Resque::Server.new

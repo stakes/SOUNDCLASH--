@@ -8,20 +8,24 @@ $.ajaxSetup({
  * This object contains global and view-specific js
 */
 
-GORILLA = {
+APPDISPATCHER = {
     
     /* Do these everywhere! */
     'common': {
     
         'init': function() {
         
+            APPOBJ = window.APPOBJ || {};
+            if (typeof APPOBJ == 'undefined') {
+            	APPOBJ = {};
+            };
             
         }
         
     },
     
-    /* Do these within the builder interface */
-    'opportunities': {
+    /* Do these within a controller */
+    'whatever': {
         
         init: function() {
             
@@ -188,12 +192,12 @@ clearSimulatedError = function(tgt) {
 
 /* UTILS
  * This looks for body data-controller= and data-action= attributes and 
- * calls corresponding methods of the GORILLA object
+ * calls corresponding methods of the APPDISPATCHER object
 */
 
 UTIL = {
   exec: function( controller, action ) {
-    var ns = GORILLA,
+    var ns = APPDISPATCHER,
         action = ( action === undefined ) ? "init" : action;
 
     if ( controller !== "" && ns[controller] && typeof ns[controller][action] == "function" ) {
