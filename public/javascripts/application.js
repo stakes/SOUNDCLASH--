@@ -29,7 +29,8 @@ APPDISPATCHER = {
         
         'landing': function() {
             
-            setupInitialForm();
+            data = {title: 'fuuuuu!!!!'}
+            init = new EJS({url: '/javascripts/views/initial_form.ejs'}).render(data)
             
         },
         
