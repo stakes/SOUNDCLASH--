@@ -25,25 +25,33 @@ class ApiController < ActionController::Base
     end
     arr = []
     p '*'*20
-    p resp.inspect
-    resp['response']['artists'][0,2].each do |r|
-      str = r['foreign_ids'][0]['foreign_id']
-      arr.push(str.split(':')[2])
-    end
-    finalresp = []
-    arr.each do |aid|
-      trackresp = RdioApi.get_tracks_for(:artist_id => aid)
-      artist = []
-      trackresp[0,3].each do |r|
-        hash = {}
-        hash['aid'] = r.artist_key
-        hash['tid'] = r.key
-        hash['image'] = r.icon
-        hash['name'] = r.artist.name
-        hash['track_name'] = r.name
-        artist.push(hash)
+    p resp['response']['status']['code']
+    if resp['response']['status']['code'] != 0
+      finalresp = {:error => 'error'}
+    else
+      resp['response']['artists'][0,2].each do |r|
+        begin
+          str = r['foreign_ids'][0]['foreign_id']
+        rescue
+          str = nil
+        end
+        arr.push(str.split(':')[2]) unless str.blank?
       end
-      finalresp.push(artist)
+      finalresp = []
+      arr.each do |aid|
+        trackresp = RdioApi.get_tracks_for(:artist_id => aid)
+        artist = []
+        trackresp[0,3].each do |r|
+          hash = {}
+          hash['aid'] = r.artist_key
+          hash['tid'] = r.key
+          hash['image'] = r.icon
+          hash['name'] = r.artist.name
+          hash['track_name'] = r.name
+          artist.push(hash)
+        end
+        finalresp.push(artist)
+      end
     end
     render :json => finalresp
   end

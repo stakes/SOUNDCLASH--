@@ -48,9 +48,7 @@ APPDISPATCHER = {
 
             // set up the controls
             $('.play').live('click', function() {
-                console.log(GLOBAL.apiswf);
                 track_id = $(this).parent().data('tid');
-                console.log(track_id);
                 GLOBAL.apiswf.rdio_play(track_id);
             });
             $('.pause').live('click', function() { 
@@ -74,7 +72,12 @@ APPDISPATCHER = {
                 $.post('/api/similar_with_tracks',
                     $('#start-artist').serialize(),
                     function(data) {
-                        createBattleView(data);
+                        console.log(data.error);
+                        if (data.error) {
+                            $('#start-artist').fadeIn(1000);
+                        } else {
+                            createBattleView(data);
+                        }
                     }
                 );
                 return false;
@@ -340,7 +343,6 @@ var callback_object = {};
 callback_object.ready = function ready() {
   // Called once the API SWF has loaded and is ready to accept method calls.
 
-  console.log('Loaded swf object')
   // find the embed/object element
   GLOBAL.apiswf = $('#apiswf').get(0);
 
