@@ -11,6 +11,9 @@ if (typeof GLOBAL.playlist == 'undefined') {
 if (typeof GLOBAL.similar_str == 'undefined') {
     GLOBAL.similar_str = '';
 }
+if (typeof GLOBAL.apiswf == 'undefined') {
+    GLOBAL.apiswf = null;
+}
 
 
 /* FUNCTIONS
@@ -28,6 +31,31 @@ APPDISPATCHER = {
             if (typeof APPOBJ == 'undefined') {
             	APPOBJ = {};
             };
+            
+            // on page load use SWFObject to load the API swf into div#apiswf
+            var flashvars = {
+              'playbackToken': playback_token, // from token.js
+              'domain': domain,                // from token.js
+              'listener': 'callback_object'    // the global name of the object that will receive callbacks from the SWF
+              };
+            var params = {
+              'allowScriptAccess': 'always'
+            };
+            var attributes = {};
+            swfobject.embedSWF('http://www.rdio.com/api/swf/', // the location of the Rdio Playback API SWF
+                'apiswf', // the ID of the element that will be replaced with the SWF
+                1, 1, '9.0.0', 'expressInstall.swf', flashvars, params, attributes);
+
+            // set up the controls
+            $('.play').live('click', function() {
+                console.log("play!");
+                track_id = $(this).parent().data('tid');
+                console.log(track_id);
+                console.log(GLOBAL.apiswf);
+                console.log(playback_token);
+                console.log(domain);
+                GLOBAL.apiswf.rdio_play(track_id);
+            });
             
         }
         
@@ -302,6 +330,19 @@ clearSimulatedError = function(tgt) {
 };
 
 
+
+/* RDIO shit */
+
+// the global callback object
+var callback_object = {};
+
+callback_object.ready = function ready() {
+  // Called once the API SWF has loaded and is ready to accept method calls.
+
+  // find the embed/object element
+  GLOBAL.apiswf = $('#apiswf').get(0);
+
+}
 
 
 

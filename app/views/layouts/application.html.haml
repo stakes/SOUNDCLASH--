@@ -16,9 +16,10 @@
 
     %body{ :data => {:controller => params[:controller], :action => params[:action]} }
     
+        #apiswf
+    
         %header
             .container_12
-
 
         #view-content.container_16
         
@@ -39,6 +40,8 @@
         :javascript
             window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")
         %script{ :src => 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js' }
+        %script{ :src => '//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js' }
+        = javascript_include_tag 'token.js'
         = javascript_include_tag 'rails.js'
         = javascript_include_tag 'libs/ejs_production.js'
         = javascript_include_tag 'libs/plugins/jquery.validate.js'
