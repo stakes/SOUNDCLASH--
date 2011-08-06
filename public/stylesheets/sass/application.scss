@@ -79,7 +79,22 @@ body.modal h1.logo {
 /* end body */
 
 
+/* forms */
 
+input[type="text"], input[type="password"], input[type="email"], textarea {
+
+    padding: 7px 6px;
+    font-size: 18px;
+    border: 1px solid #C6C6C6;
+    background-color: #F4F4F4;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    @include roundedbox(4px);
+    @include inputshadow;
+    display: block;
+
+}
+
+/* end forms */
 
 
 

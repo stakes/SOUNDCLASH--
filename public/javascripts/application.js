@@ -48,13 +48,13 @@ APPDISPATCHER = {
 
             // set up the controls
             $('.play').live('click', function() {
-                console.log("play!");
+                console.log(GLOBAL.apiswf);
                 track_id = $(this).parent().data('tid');
                 console.log(track_id);
-                console.log(GLOBAL.apiswf);
-                console.log(playback_token);
-                console.log(domain);
                 GLOBAL.apiswf.rdio_play(track_id);
+            });
+            $('.pause').live('click', function() { 
+                GLOBAL.apiswf.rdio_pause(); 
             });
             
         }
@@ -198,6 +198,7 @@ selectArtist = function(el) {
     obj.track = tgt.data('track');
     obj.image = tgt.find('img').attr('src');
     GLOBAL.playlist.push(obj);
+    GLOBAL.apiswf.rdio_stop();
     updatePlaylistView(obj);
     $('#battle-container').html('');
     refineNextSelection();
@@ -339,6 +340,7 @@ var callback_object = {};
 callback_object.ready = function ready() {
   // Called once the API SWF has loaded and is ready to accept method calls.
 
+  console.log('Loaded swf object')
   // find the embed/object element
   GLOBAL.apiswf = $('#apiswf').get(0);
 
