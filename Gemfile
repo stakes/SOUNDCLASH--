@@ -22,5 +22,6 @@ gem 'haml'
 gem 'sass'
 
 gem 'httparty'
+gem 'rdio'
 
 gem 'thin'
