@@ -36,7 +36,7 @@ APPDISPATCHER = {
                 $.post('/api/similar',
                     $('#start-artist').serialize(),
                     function(data) {
-                        console.log(artistIdsToArray(data.response));
+                        createBattleView(artistIdsToArray(data.response));
                     }
                 );
                 return false;
@@ -111,6 +111,7 @@ APPDISPATCHER = {
 
 
 artistIdsToArray = function(response) {
+    
     array = [];
     $.each(response.artists, function(index, value) {
         astr = value.foreign_ids[0].foreign_id;
@@ -124,12 +125,22 @@ artistIdsToArray = function(response) {
 
 createBattleView = function(artistList) {
   
+  createArtistBlock(artistList[0]);
+  createArtistBlock(artistList[1]);
   
 };
 
 
 createArtistBlock = function(artist) {
     
+    console.log('create block for '+artist);
+    $.post('/api/tracks',
+        {aid: artist},
+        function(data) {
+            console.log('artist info: '+data);
+        }
+    );
+    return false;
     
 };
 

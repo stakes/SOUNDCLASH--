@@ -13,7 +13,15 @@ class ApiController < ActionController::Base
   def tracks_by_artist
     aid = params[:aid]
     resp = RdioApi.get_tracks_for(:artist_id => aid)
-    render :json => resp
+    arr = []
+    resp[0,3].each do |r|
+      hash = {}
+      hash['image'] = r.base_icon
+      hash['name'] = r.artist.name
+      arr.push(hash)
+    end
+    p arr.inspect
+    render :json => arr
   end
   
 end
