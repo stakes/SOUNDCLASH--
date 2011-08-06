@@ -21,4 +21,6 @@ gem 'resque'
 gem 'haml'
 gem 'sass'
 
+gem 'httparty'
+
 gem 'thin'
