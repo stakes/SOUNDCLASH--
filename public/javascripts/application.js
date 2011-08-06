@@ -31,12 +31,12 @@ APPDISPATCHER = {
             
             data = {};
             init = new EJS({url: '/javascripts/views/initial_form.ejs'}).render(data)
-            $('#view-content').append(init);
+            $('#start-form-container').append(init);
             $('#start-artist').live('submit', function() {
-                $.post('/api/similar',
+                $.post('/api/similar_with_tracks',
                     $('#start-artist').serialize(),
                     function(data) {
-                        createBattleView(artistIdsToArray(data.response));
+                        createBattleView(data);
                     }
                 );
                 return false;
@@ -133,13 +133,10 @@ createBattleView = function(artistList) {
 
 createArtistBlock = function(artist) {
     
-    console.log('create block for '+artist);
-    $.post('/api/tracks',
-        {aid: artist},
-        function(data) {
-            console.log('artist info: '+data);
-        }
-    );
+    console.log('create block for '+artist.name);
+    console.log('artist info: '+artist);
+    block = new EJS({url: '/javascripts/views/artist_block.ejs'}).render(artist[0]);
+    $('#battle-container').append(block);
     return false;
     
 };

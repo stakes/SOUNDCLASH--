@@ -7,6 +7,7 @@ Template::Application.routes.draw do
   match '/auth/failure', :to => 'authentications#index'
   resources :authentications
   
+  match '/api/similar_with_tracks', :to => 'api#similar_artists_with_rdio'
   match '/api/similar', :to => 'api#similar_artists'
   match '/api/tracks', :to => 'api#tracks_by_artist'
 
