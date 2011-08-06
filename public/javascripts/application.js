@@ -25,10 +25,11 @@ APPDISPATCHER = {
     },
     
     /* Do these within a controller */
-    'whatever': {
+    'home': {
         
-        init: function() {
+        'landing': function() {
             
+            setupInitialForm();
             
         },
         

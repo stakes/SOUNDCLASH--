@@ -17,19 +17,7 @@
     
         %header
             .container_12
-                %h1.logo.ir Streamrollr
-                - if user_signed_in?
-                                        
-                    %ul.user-nav
-                        %li
-                            %a{ :href => '/users/sign_out' } Sign out
-                - else
-                    %ul.user-nav
-                        %li
-                            %a{ :href => '/users/sign_in' } Sign in
-                        %li
-                            %a{ :href => '/users/sign_up' } Sign up
-                
+
 
         #view-content.container_16
         

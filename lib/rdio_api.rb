@@ -13,7 +13,7 @@ class RdioApi
   def self.get_tracks_for(options={})
     !options[:results].blank? ? results = '&count='+options[:results] : results = '&results=10'
     Rdio.init(API_KEY, API_SECRET)
-    Rdio.api.getTracksForArtist('r46088')
+    Rdio.api.getTracksForArtist(options[:artist_id])
   end
   
 end
