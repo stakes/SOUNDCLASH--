@@ -31,6 +31,16 @@ APPDISPATCHER = {
             
             data = {title: 'fuuuuu!!!!'}
             init = new EJS({url: '/javascripts/views/initial_form.ejs'}).render(data)
+            $('#view-content').append(init);
+            $('#start-artist').live('submit', function() {
+                $.post('/api/similar',
+                    $('#start-artist').serialize(),
+                    function(data) {
+                        console.log(data);
+                    }
+                );
+                return false;
+            })
             
         },
         

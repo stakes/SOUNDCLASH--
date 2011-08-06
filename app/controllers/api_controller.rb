@@ -2,7 +2,11 @@ class ApiController < ActionController::Base
   
   def similar_artists
     astr = params[:astr]
-    resp = EchonestApi.get_similar_to(:artist => astr)
+    if params[:type] == 'artist'
+      resp = EchonestApi.get_similar_to(:artist => astr)
+    else
+      resp = EchonestApi.get_similar_to(:desc => astr)
+    end
     render :json => resp
   end
   

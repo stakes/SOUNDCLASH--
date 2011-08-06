@@ -1,1 +1,6 @@
-<h1><%= title %></h1>
+<form action="/api/similar" method="post" id="start-artist">
+    <label for="artist">Artist</label>
+    <input type="text" name="astr" id="artist" />
+    <input type="hidden" name="type" value="artist" />
+    <input type="submit" value="Let's go!">
+</form>
