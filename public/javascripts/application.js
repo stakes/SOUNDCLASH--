@@ -29,14 +29,14 @@ APPDISPATCHER = {
         
         'landing': function() {
             
-            data = {title: 'fuuuuu!!!!'}
+            data = {};
             init = new EJS({url: '/javascripts/views/initial_form.ejs'}).render(data)
             $('#view-content').append(init);
             $('#start-artist').live('submit', function() {
                 $.post('/api/similar',
                     $('#start-artist').serialize(),
                     function(data) {
-                        console.log(data);
+                        console.log(artistIdsToArray(data.response));
                     }
                 );
                 return false;
@@ -108,6 +108,42 @@ APPDISPATCHER = {
     
 };
 
+
+
+artistIdsToArray = function(response) {
+    array = [];
+    $.each(response.artists, function(index, value) {
+        astr = value.foreign_ids[0].foreign_id;
+        aid = astr.slice(astr.lastIndexOf(':')+1);
+        array.push(aid)
+    });
+    return array;
+   
+}
+
+
+createBattleView = function(artistList) {
+  
+  
+};
+
+
+createArtistBlock = function(artist) {
+    
+    
+};
+
+
+createPlaylistView = function() {
+
+    
+};
+
+
+updatePlaylistView = function(artist) {
+  
+    
+};
 
 
 
