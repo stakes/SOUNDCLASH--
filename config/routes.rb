@@ -10,6 +10,7 @@ Template::Application.routes.draw do
   match '/api/similar_with_tracks', :to => 'api#similar_artists_with_rdio'
   match '/api/similar', :to => 'api#similar_artists'
   match '/api/tracks', :to => 'api#tracks_by_artist'
+  match '/api/search', :to => 'api#desc_artists_with_rdio'
 
   root :to => "home#landing"
 

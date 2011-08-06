@@ -12,13 +12,14 @@ class EchonestApi
   
   
   def self.get_artists(options={})
-    !options[:results].blank? ? results = '&results='+options[:results] : results = '&results=10'
+    !options[:results].blank? ? results = '&results='+options[:results] : results = '&results=20'
     if !options[:artist].blank?
       get (API_ROOT+'artist/search?'+API_KEY+FORMAT+'&name='+CGI::escape(options[:artist])+results)
     elsif !options[:artists].blank?
       get (API_ROOT+'artist/search?'+API_KEY+FORMAT+CGI::escape(options[:artists])+results)
     elsif !options[:desc].blank?
-      get (API_ROOT+'artist/search?'+API_KEY+FORMAT+'&description='+CGI::escape(options[:desc])+results)
+      p 'go'
+      get (API_ROOT+'artist/search?'+API_KEY+FORMAT+RDIO+'&description='+CGI::escape(options[:desc])+results)
     end
   end
   

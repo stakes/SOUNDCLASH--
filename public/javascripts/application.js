@@ -68,12 +68,36 @@ APPDISPATCHER = {
             init = new EJS({url: '/javascripts/views/initial_form.ejs'}).render(data)
             $('#start-form-container').append(init);
             $('#start-artist').live('submit', function() {
+                $('#search-artist').fadeOut(500);
                 $('#start-artist').fadeOut(500);
+                $('#text-container').fadeOut(500);
+                $("#loader-container").fadeIn(500);
+                
                 $.post('/api/similar_with_tracks',
                     $('#start-artist').serialize(),
                     function(data) {
+                        if (data.error) {
+                            $('#search-artist').fadeIn(1000);
+                            $('#start-artist').fadeIn(1000);
+                        } else {
+                            createBattleView(data);
+                        }
+                    }
+                );
+                return false;
+            });
+            $('#search-artist').live('submit', function() {
+                $('#search-artist').fadeOut(500);
+                $('#start-artist').fadeOut(500);
+                $('#text-container').fadeOut(500);
+                $("#loader-container").fadeIn(500);
+                
+                $.post('/api/search',
+                    $('#search-artist').serialize(),
+                    function(data) {
                         console.log(data.error);
                         if (data.error) {
+                            $('#search-artist').fadeIn(1000);
                             $('#start-artist').fadeIn(1000);
                         } else {
                             createBattleView(data);
@@ -172,6 +196,7 @@ artistIdsToArray = function(response) {
 createBattleView = function(artistList) {
   
   // $('#battle-container').fadeOut(1000, function() {
+      $("#loader-container").fadeOut(500);
       $('#battle-container').html('');
       createArtistBlock(artistList[0]);
       createArtistBlock(artistList[1]);
@@ -193,6 +218,9 @@ selectArtist = function(el) {
     if ($("#playlist-container").length > 0) {
       createPlaylistView();
     };
+    $('#playlist-container').animate({
+        height: 120
+    });
     tgt = el.parent();
     obj = {};
     obj.aid = tgt.data('aid');
@@ -204,6 +232,7 @@ selectArtist = function(el) {
     GLOBAL.apiswf.rdio_stop();
     updatePlaylistView(obj);
     $('#battle-container').html('');
+    $("#loader-container").fadeIn(500);
     refineNextSelection();
     
 };
@@ -245,7 +274,10 @@ updatePlaylistView = function(artist) {
     
 };
 
-
+showLoader = function() {
+    el = '<img src="/images/facebox/loader.gif" />'
+    
+}
 
 
 

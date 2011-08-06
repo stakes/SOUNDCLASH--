@@ -24,8 +24,42 @@ class ApiController < ActionController::Base
       resp = EchonestApi.get_similar_to(:desc => astr)
     end
     arr = []
-    p '*'*20
-    p resp['response']['status']['code']
+    if resp['response']['status']['code'] != 0
+      finalresp = {:error => 'error'}
+    else
+      resp['response']['artists'][0,2].each do |r|
+        begin
+          str = r['foreign_ids'][0]['foreign_id']
+        rescue
+          str = nil
+        end
+        arr.push(str.split(':')[2]) unless str.blank?
+      end
+      finalresp = []
+      arr.each do |aid|
+        trackresp = RdioApi.get_tracks_for(:artist_id => aid)
+        artist = []
+        trackresp[0,3].each do |r|
+          hash = {}
+          hash['aid'] = r.artist_key
+          hash['tid'] = r.key
+          hash['image'] = r.icon
+          hash['name'] = r.artist.name
+          hash['track_name'] = r.name
+          artist.push(hash)
+        end
+        finalresp.push(artist)
+      end
+    end
+    render :json => finalresp
+  end
+  
+  def desc_artists_with_rdio
+    p 'YES!'
+    astr = params[:desc]
+    resp = EchonestApi.get_artists(:desc => astr)
+    p resp.inspect
+    arr = []
     if resp['response']['status']['code'] != 0
       finalresp = {:error => 'error'}
     else

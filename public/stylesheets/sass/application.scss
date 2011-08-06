@@ -46,10 +46,16 @@ span.negative {
 
 body {
     
-    background-color: #333;
+    background-color: #171717;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.0078125);   
     position: relative;
+    background-image: url('../images/bg.jpg');
+    background-position: center 25%;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+    @include blackts;
 
 }
 
@@ -84,17 +90,79 @@ body.modal h1.logo {
 input[type="text"], input[type="password"], input[type="email"], textarea {
 
     padding: 7px 6px;
-    font-size: 18px;
+    font-size: 36px;
     border: 1px solid #C6C6C6;
     background-color: #F4F4F4;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     @include roundedbox(4px);
     @include inputshadow;
     display: block;
+    width: 480px;
 
 }
 
+input[type="submit"] {
+  margin-top: 18px;
+}
+
 /* end forms */
+
+h2 {
+  color: #fff;
+  font-weight: 300;
+  font-size: 34px;
+  margin-bottom: 18px;
+}
+p {
+  font-size: 18px;
+  line-height: 24px;
+  color: #ccc;
+  margin-bottom: 12px;
+}
+label {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+header {
+  margin-top: 24px;
+}
+
+
+#text-container {
+  width: 600px;
+  margin: 48px auto;
+}
+#forms-container {
+  width: 480px;
+  margin: 48px auto;
+}
+
+#loader-container {
+
+  display: none;
+  position: absolute;
+  top: 340px;
+  left: 50%;
+}
+
+.artist-block {
+  float: left;
+  img {
+    border: 1px solid #ccc;
+  }
+  .img-container {
+    padding: 8px;
+    @include shadowedbox(0, 0, 10px, 5px, 1);
+  }
+}
+
+#battle-container {
+  margin: 0 auto;
+  width: 500px;
+}
 
 
 
@@ -104,7 +172,7 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 120px;
+  height: 0;
   background-color: rgba(0,0,0,.5);
   
   img {

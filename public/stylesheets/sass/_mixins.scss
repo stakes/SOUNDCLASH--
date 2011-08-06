@@ -12,10 +12,10 @@
     -webkit-border-radius: $radius;
 }
 
-@mixin shadowedbox($l: 0, $t: 0, $blur: 5px, $opacity: 1) {
-    -moz-box-shadow: $l $t $blur rgba(0,0,0,$opacity);
-    -webkit-box-shadow: $l $t $blur rgba(0,0,0,$opacity);
-    box-shadow: $l $t $blur rgba(0,0,0,$opacity);
+@mixin shadowedbox($l: 0, $t: 0, $blur: 5px, $spread: 0, $opacity: 1) {
+    -moz-box-shadow: $l $t $blur $spread rgba(0,0,0,$opacity);
+    -webkit-box-shadow: $l $t $blur $spread rgba(0,0,0,$opacity);
+    box-shadow: $l $t $blur $spread rgba(0,0,0,$opacity);
 }
 
 @mixin insetshadowed($l: 0, $t: 0, $blur: 5px, $opacity: 1, $r: 0, $g: 0, $bl: 0) {

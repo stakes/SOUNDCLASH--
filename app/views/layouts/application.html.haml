@@ -11,6 +11,7 @@
         = stylesheet_link_tag 'boilerplate.css'
         = stylesheet_link_tag '960.css'
         = stylesheet_link_tag 'application.css'
+        = stylesheet_link_tag 'buttons.css'
         = javascript_include_tag 'libs/modernizr-1.7.min.js'
         = csrf_meta_tag
 
@@ -19,9 +20,10 @@
         #apiswf
     
         %header
-            .container_12
+            %img{:src => 'images/logo.png'}
+            
 
-        #view-content.container_16
+        #view-content
         
             #flash-message-container
                 - flash.each do |name, msg|
@@ -32,6 +34,9 @@
             #start-form-container
             
             #battle-container
+            
+            #loader-container
+                %img{:src => '/images/loader.gif'}
             
         #playlist-container
             
