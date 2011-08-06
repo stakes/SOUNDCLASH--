@@ -159,16 +159,18 @@ createArtistBlock = function(artist) {
 
 selectArtist = function(el) {
 
+    if ($("#playlist-container").length > 0) {
+      createPlaylistView();
+    };
     tgt = el.parent();
-    console.log("select artist")
     obj = {};
     obj.aid = tgt.data('aid');
     obj.tid = tgt.data('tid');
     obj.artist = tgt.data('artist');
     obj.track = tgt.data('track');
-    console.log(obj)
+    obj.image = tgt.find('img').attr('src');
     GLOBAL.playlist.push(obj);
-    console.log('playlist: '+GLOBAL.playlist)
+    updatePlaylistView(obj);
     $('#battle-container').html('');
     refineNextSelection();
     
@@ -178,10 +180,12 @@ refineNextSelection = function() {
   
     arr = []
     $.each(GLOBAL.playlist, function(index, value) {
-      console.log('artist: '+value.artist);  
-      arr.push(value.artist);
+        arr.push(value.artist);
     });
-    console.log('arr: '+arr)
+    if (arr.length > 5) {
+        arr = arr.splice(arr.length-5);
+    }
+    console.log('array: '+arr)
     $.post('/api/similar_with_tracks',
         {artists_array: arr, type: 'artist_string'},
         function(data) {
@@ -194,12 +198,18 @@ refineNextSelection = function() {
 
 createPlaylistView = function() {
 
+    data = {}
+    block = new EJS({url: '/javascripts/views/playlist.ejs'}).render(data);
+    $('#playlist-container').append(block);
     
 };
 
 
 updatePlaylistView = function(artist) {
   
+    console.log(artist)
+    block = new EJS({url: '/javascripts/views/playlist_item.ejs'}).render(artist);
+    $('#playlist').append(block);
     
 };
 

@@ -7,7 +7,6 @@ class ApiController < ActionController::Base
     else
       resp = EchonestApi.get_similar_to(:desc => astr)
     end
-    p resp.inspect
     render :json => resp
   end
   
@@ -20,14 +19,13 @@ class ApiController < ActionController::Base
     if params[:type] == 'artist'
       resp = EchonestApi.get_similar_to(:artist => astr)
     elsif params[:type] == 'artist_string'
-      p '*'*10
-      p astr
-      p 'awesome'
       resp = EchonestApi.get_similar_to(:artists => astr)
     else
       resp = EchonestApi.get_similar_to(:desc => astr)
     end
     arr = []
+    p '*'*20
+    p resp.inspect
     resp['response']['artists'][0,2].each do |r|
       str = r['foreign_ids'][0]['foreign_id']
       arr.push(str.split(':')[2])
@@ -60,7 +58,6 @@ class ApiController < ActionController::Base
       hash['name'] = r.artist.name
       arr.push(hash)
     end
-    p arr.inspect
     render :json => arr
   end
   
