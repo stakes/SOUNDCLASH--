@@ -12,9 +12,18 @@ class ApiController < ActionController::Base
   end
   
   def similar_artists_with_rdio
-    astr = params[:astr]
+    if params[:astr].blank?
+      astr = params[:artists_array]
+    else
+      astr = params[:astr]
+    end
     if params[:type] == 'artist'
       resp = EchonestApi.get_similar_to(:artist => astr)
+    elsif params[:type] == 'artist_string'
+      p '*'*10
+      p astr
+      p 'awesome'
+      resp = EchonestApi.get_similar_to(:artists => astr)
     else
       resp = EchonestApi.get_similar_to(:desc => astr)
     end
@@ -29,6 +38,8 @@ class ApiController < ActionController::Base
       artist = []
       trackresp[0,3].each do |r|
         hash = {}
+        hash['aid'] = r.artist_key
+        hash['tid'] = r.key
         hash['image'] = r.icon
         hash['name'] = r.artist.name
         hash['track_name'] = r.name
@@ -36,8 +47,6 @@ class ApiController < ActionController::Base
       end
       finalresp.push(artist)
     end
-    p '*'*10
-    p finalresp.inspect
     render :json => finalresp
   end
   

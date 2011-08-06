@@ -4,6 +4,15 @@ $.ajaxSetup({
   }
 });
 
+GLOBAL = window.GLOBAL || {};
+if (typeof GLOBAL.playlist == 'undefined') {
+	GLOBAL.playlist = [];
+};
+if (typeof GLOBAL.similar_str == 'undefined') {
+    GLOBAL.similar_str = '';
+}
+
+
 /* FUNCTIONS
  * This object contains global and view-specific js
 */
@@ -33,6 +42,7 @@ APPDISPATCHER = {
             init = new EJS({url: '/javascripts/views/initial_form.ejs'}).render(data)
             $('#start-form-container').append(init);
             $('#start-artist').live('submit', function() {
+                $('#start-artist').fadeOut(500);
                 $.post('/api/similar_with_tracks',
                     $('#start-artist').serialize(),
                     function(data) {
@@ -40,6 +50,11 @@ APPDISPATCHER = {
                     }
                 );
                 return false;
+            });
+            
+            $('.artist-block a').live('click', function(evt) {
+                selectArtist($(this));
+                evt.preventDefault();
             })
             
         },
@@ -125,19 +140,54 @@ artistIdsToArray = function(response) {
 
 createBattleView = function(artistList) {
   
-  createArtistBlock(artistList[0]);
-  createArtistBlock(artistList[1]);
+  // $('#battle-container').fadeOut(1000, function() {
+      $('#battle-container').html('');
+      createArtistBlock(artistList[0]);
+      createArtistBlock(artistList[1]);
+  // })
   
 };
 
 
 createArtistBlock = function(artist) {
     
-    console.log('create block for '+artist.name);
-    console.log('artist info: '+artist);
     block = new EJS({url: '/javascripts/views/artist_block.ejs'}).render(artist[0]);
     $('#battle-container').append(block);
     return false;
+    
+};
+
+selectArtist = function(el) {
+
+    tgt = el.parent();
+    console.log("select artist")
+    obj = {};
+    obj.aid = tgt.data('aid');
+    obj.tid = tgt.data('tid');
+    obj.artist = tgt.data('artist');
+    obj.track = tgt.data('track');
+    console.log(obj)
+    GLOBAL.playlist.push(obj);
+    console.log('playlist: '+GLOBAL.playlist)
+    $('#battle-container').html('');
+    refineNextSelection();
+    
+};
+
+refineNextSelection = function() {
+  
+    arr = []
+    $.each(GLOBAL.playlist, function(index, value) {
+      console.log('artist: '+value.artist);  
+      arr.push(value.artist);
+    });
+    console.log('arr: '+arr)
+    $.post('/api/similar_with_tracks',
+        {artists_array: arr, type: 'artist_string'},
+        function(data) {
+            createBattleView(data);
+        }
+    );  
     
 };
 
