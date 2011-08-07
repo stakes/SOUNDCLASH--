@@ -123,6 +123,15 @@ APPDISPATCHER = {
                         revealFullPlaylist();                        
                     });
                     $(this).html('Hide my playlist');
+                    $.post('/api/save',
+                        {tracks: GLOBAL.playlist},
+                        function(data) {
+                            $('#playlist-share').fadeIn(1000);
+                            $('#playlist-url').html('http://soundclash.herokuapp.com/playlist/'+data.url);
+                            $('.twitter-share-button').attr('data-url', 'http://soundclash.herokuapp.com/playlist/'+data.url)
+                            $('#share-container').append('<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-text="Here\'s a kickass playlist that I made using Soundclash:" data-url="http://soundclash.herokuapp.com/playlist/'+data.url+'">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><iframe src="http://www.facebook.com/plugins/like.php?app_id=107280719361672&amp;href=http://soundclash.herokuapp.com/playlist/'+data.url+'&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>');
+                        }
+                    );
                 } else {
                     hideFullPlaylist();
                     $('#playlist-container').animate({
@@ -132,13 +141,6 @@ APPDISPATCHER = {
                     }); 
                     $(this).html('Share my playlist');             
                 }
-                $.post('/api/save',
-                    {tracks: GLOBAL.playlist},
-                    function(data) {
-                        $('#playlist-share').fadeIn(1000);
-                        $('#playlist-url').html('http://soundclash.herokuapp.com/playlist/'+data.url);
-                    }
-                )
                 evt.preventDefault(); 
             });
             
