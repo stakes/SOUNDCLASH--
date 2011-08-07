@@ -135,7 +135,8 @@ APPDISPATCHER = {
                 $.post('/api/save',
                     {tracks: GLOBAL.playlist},
                     function(data) {
-                        console.log(data);
+                        $('#playlist-share').fadeIn(1000);
+                        $('#playlist-url').html('http://soundclash.herokuapp.com/playlist/'+data.url);
                     }
                 )
                 evt.preventDefault(); 

@@ -193,8 +193,6 @@ header {
   }
 }
 
-
-
 #playlist-container {
   
   width: 100%;
@@ -255,4 +253,44 @@ header {
   
   }
   
+  #playlist-share {
+    
+    display: none;
+    padding: 12px;
+    text-align: left;
+    margin: 24px;
+    background-color: #000;
+    border: 1px solid #222;
+    
+    h3 {
+      display: block;
+      font-size: 24px;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+    
+  }
+  
 }
+
+
+
+
+#playlist-container.static {
+  
+  height: 100%;
+  background-color: transparent;
+  margin: 0;
+  
+  #playlist-share {
+    background-color: rgba(0,0,0,.6);
+    display: block;
+  }
+  
+  #playlist-main {
+    margin-top: 20px;
+  }
+  
+  
+}
+

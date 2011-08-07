@@ -18,27 +18,27 @@
 
     %body{ :data => {:controller => params[:controller], :action => params[:action]} }
     
-        #apiswf
-    
-        %header
-            %img{:src => 'images/logo.png'}
-            
-
         #view-content
         
             #flash-message-container
                 - flash.each do |name, msg|
                     = content_tag :div, content_tag(:p, msg), :class => 'flash-message '+name.to_s
+
             
-            #playlist-container
-                .playlist-header
-                    %a#playlist-link{:href => '#', :data => {:state => 'closed'}} Share my playlist
+            #playlist-container.static
+
+                #playlist-share
+                    %h3 This playlist was created with Soundclash!
+                    :erb
+                        <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-text="Here's a kickass playlist that I made using Soundclash:" >Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                    :plain
+                        <iframe src="http://www.facebook.com/plugins/like.php?app_id=107280719361672&amp;href&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
                 #playlist-preview
 
                 #playlist-main
+                    = yield
 
-
-            = yield
+            
             
             
 
@@ -52,4 +52,3 @@
         = javascript_include_tag 'rails.js'
         = javascript_include_tag 'libs/ejs_production.js'
         = javascript_include_tag 'libs/plugins/jquery.validate.js'
-        = javascript_include_tag 'application.js'

@@ -229,3 +229,25 @@ header {
     #playlist-container .list-item .image-holder img {
       width: 120px;
       height: 120px; }
+  #playlist-container #playlist-share {
+    display: none;
+    padding: 12px;
+    text-align: left;
+    margin: 24px;
+    background-color: #000;
+    border: 1px solid #222; }
+    #playlist-container #playlist-share h3 {
+      display: block;
+      font-size: 24px;
+      font-weight: 300;
+      margin-bottom: 12px; }
+
+#playlist-container.static {
+  height: 100%;
+  background-color: transparent;
+  margin: 0; }
+  #playlist-container.static #playlist-share {
+    background-color: rgba(0, 0, 0, 0.6);
+    display: block; }
+  #playlist-container.static #playlist-main {
+    margin-top: 20px; }
