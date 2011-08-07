@@ -29,9 +29,9 @@ THE SOFTWARE.
 //   {"status": "ok", "result": "YOUR_PLAYBACK_TOKEN"}
 // if you want to do playback as a particular user, pass --authenticate to rdio-call
 // then update playback_token below with YOUR_PLAYBACK_TOKEN and the domain below with YOUR_DOMAIN
+// 
+// var playback_token = "GAlOPaqF_____25zNGQ5YnBybXA4Z2N6M3J6eHk0djNhN2xvY2FsaG9zdHQGjohEmuNXVpFnnoi8GXE=";
+// var domain = "localhost";
 
-var playback_token = "GAlOPaqF_____25zNGQ5YnBybXA4Z2N6M3J6eHk0djNhN2xvY2FsaG9zdHQGjohEmuNXVpFnnoi8GXE=";
-var domain = "localhost";
-
-// var playback_token = "GBhOPaqm_____25zNGQ5YnBybXA4Z2N6M3J6eHk0djNhN3NvdW5kY2xhc2guaGVyb2t1YXBwLmNvbeR5JNhDM1QdZuQyQ_e7Um8=";
-// var domain = "soundclash.herokuapp.com"
+var playback_token = "GBhOPaqm_____25zNGQ5YnBybXA4Z2N6M3J6eHk0djNhN3NvdW5kY2xhc2guaGVyb2t1YXBwLmNvbeR5JNhDM1QdZuQyQ_e7Um8=";
+var domain = "soundclash.herokuapp.com"
