@@ -1,5 +1,29 @@
 class ApiController < ActionController::Base
   
+  def save_playlist
+    
+    pl = Playlist.new
+    pl.save
+    puts params[:tracks]
+    params[:tracks].each do |tdata|
+      # a = Artist.new(tdata)
+      # a.playlist_id = pl.id
+      # a.save
+      data = tdata[1]
+      a = Artist.new
+      a.playlist = pl
+      a.artist_name = data['artist']
+      a.track_name = data['track']
+      a.aid = data['aid']
+      a.tid = data['tid']
+      a.image = data['image']
+      a.save
+      
+    end
+    render :json => {:url => pl.id}
+    
+  end
+  
   def similar_artists
     astr = params[:astr]
     if params[:type] == 'artist'

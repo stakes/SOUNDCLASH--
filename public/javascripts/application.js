@@ -132,6 +132,12 @@ APPDISPATCHER = {
                     }); 
                     $(this).html('Share my playlist');             
                 }
+                $.post('/api/save',
+                    {tracks: GLOBAL.playlist},
+                    function(data) {
+                        console.log(data);
+                    }
+                )
                 evt.preventDefault(); 
             });
             

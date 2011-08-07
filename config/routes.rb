@@ -11,6 +11,9 @@ Template::Application.routes.draw do
   match '/api/similar', :to => 'api#similar_artists'
   match '/api/tracks', :to => 'api#tracks_by_artist'
   match '/api/search', :to => 'api#desc_artists_with_rdio'
+  match '/api/save', :to => 'api#save_playlist'
+  
+  match '/playlist/:id', :to => 'playlists#show'
 
   root :to => "home#landing"
 

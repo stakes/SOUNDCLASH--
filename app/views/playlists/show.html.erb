@@ -1,0 +1,17 @@
+<% @playlist.artists.each do |track| %>
+
+<div class="list-item" data-artist="<%= track.artist_name %>" data-track="<%= track.track_name %>" data-tid="<%= track.tid %>" data-aid="<%= track.aid %>">
+    <div class="image-holder">
+        <image src="<%= track.image %>" />
+    </div>
+    <div class="info-holder" data-artist="<%= track.artist_name %>" data-track="<%= track.track_name %>" data-tid="<%= track.tid %>" data-aid="<%= track.aid %>">
+        <h2><%= track.artist_name %></h2>
+        <p><%= track.track_name %></p>
+        <div class="controls">
+            <a href="#" class="play ui-button ui-left">Play</a><a href="#" class="pause ui-button ui-right">Pause</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<% end %>
