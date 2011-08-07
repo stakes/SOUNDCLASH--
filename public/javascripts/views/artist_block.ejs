@@ -1,10 +1,11 @@
 <div id="block-<%= aid %>" class="artist-block" data-artist="<%= name %>" data-track="<%= track_name %>" data-tid="<%= tid %>" data-aid="<%= aid %>">
     <div class="img-container">
         <img src=<%= image %> />
+        <a href="#" class="like-this button blue" id="like-<%= aid %>">YES</a>
     </div>
-    <h1><%= name %></h1>
+    <h2><%= name %></h2>
     <p><%= track_name %></p>
-    <a href="#" class="like-this" id="like-<%= aid %>">YES</a>
-    <button class="play">Play</button><br>
-    <button class="pause">Pause</button>
+    <div class="controls">
+        <a href="#" class="play ui-button ui-left">Play</a><a href="#" class="pause ui-button ui-right">Pause</a>
+    </div>
 </div>

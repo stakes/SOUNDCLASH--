@@ -24,6 +24,8 @@ class EchonestApi
   end
   
   def self.get_similar_to(options={})
+    p options.inspect
+    p '*'*10
     !options[:results].blank? ? results = '&results='+options[:results] : results = '&results=10'
     if !options[:artist].blank?
       get (API_ROOT+'artist/similar?'+API_KEY+FORMAT+RDIO+'&name='+CGI::escape(options[:artist])+results)

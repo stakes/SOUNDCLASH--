@@ -1,0 +1,308 @@
+.ui-buttons {
+    background: #ccc;
+    padding: 20px 10px 10px 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    float: left;
+    margin-bottom: 40px;
+    width: 830px;
+}
+a.ui-button,
+a.ui-icon {
+    color: #484848;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+    font: bold 12px Helvetica, Arial, sans-serif;
+    line-height: 35px;
+    height: 35px;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    padding: 0 10px;
+    background: #f0f0f0;
+    background: -webkit-linear-gradient(top, #f7f7f7, #d1d1d1);
+    background: -moz-linear-gradient(top, #f7f7f7, #d1d1d1);
+    background: -ms-linear-gradient(top, #f7f7f7, #d1d1d1);
+    background: -o-linear-gradient(top, #f7f7f7, #d1d1d1);
+    border: solid 1px #7f7f7f;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=90, Color='#ffffff')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=90, Color='#ffffff');
+    -webkit-transition: border-color .218s;
+    -moz-transition: border .218s;
+    -o-transition: border-color .218s;
+    transition: border-color .218s;
+}
+a.ui-button:hover,
+a.ui-icon:hover {
+    border: solid 1px #333;
+    color: #282828;
+    background: -webkit-linear-gradient(top, #ffffff, #dfdfdf);
+    background: -moz-linear-gradient(top, #ffffff, #dfdfdf);
+    background: -ms-linear-gradient(top, #ffffff, #dfdfdf);
+    background: -o-linear-gradient(top, #ffffff, #dfdfdf);
+}
+a.ui-button:active,
+a.ui-icon:active,
+a.ui-button.selected,
+a.ui-button.selected:hover,
+a.ui-button.selected:active {
+    border: solid 1px #7f7f7f;
+    background: #d0d0d0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#a8a8a8), color-stop(0.15, #c6c6c6), to(#d8d8d8));
+    background: -webkit-linear-gradient(top, #a8a8a8, #c6c6c6 15%, #d8d8d8);
+    background: -moz-linear-gradient(top, #a8a8a8, #c6c6c6 15%, #d8d8d8);
+    background: -ms-linear-gradient(top, #a8a8a8, #c6c6c6 15%, #d8d8d8);
+    background: -o-linear-gradient(top, #a8a8a8, #c6c6c6 15%, #d8d8d8);
+}
+a.ui-icon {
+    padding: 0;
+    margin-bottom: 10px;
+}
+a.ui-icon span {
+    display: block;
+    line-height: 35px;
+    height: 35px;
+    width: 36px;
+    max-width: 36px;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+a.ui-left {
+    margin: 0;
+    border-right: solid 1px #c2beac;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius-topright: 0;
+    border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    border-bottom-right-radius: 0;
+}
+a.ui-middle {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    margin: 0;
+    border-left: solid 1px rgba(255, 255, 255, 0);
+    border-right: solid 1px #b0b0b0;
+}
+a.ui-middle:hover,
+a.ui-right:hover { border-left: solid 1px #806147 }
+a.ui-middle:active,
+a.ui-right:active { border-left: solid 1px #c2beac }
+a.ui-right {
+    border-left: solid 1px rgba(255, 255, 255, 0);
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius-topleft: 0;
+    border-top-left-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    border-bottom-left-radius: 0;
+}
+
+a.ui-icon1 span {background:url(../images/button-icons.png) -0px -36px;}
+a.ui-icon2 span {background:url(../images/button-icons.png) -36px -36px;}
+a.ui-icon3 span {background:url(../images/button-icons.png) -72px -36px;}
+a.ui-icon4 span {background:url(../images/button-icons.png) -108px -36px;}
+a.ui-icon5 span {background:url(../images/button-icons.png) -144px -36px;}
+a.ui-icon6 span {background:url(../images/button-icons.png) -180px -36px;}
+a.ui-icon7 span {background:url(../images/button-icons.png) -216px -36px;}
+a.ui-icon8 span {background:url(../images/button-icons.png) -252px -36px;}
+a.ui-icon9 span {background:url(../images/button-icons.png) -288px -36px;}
+a.ui-icon10 span {background:url(../images/button-icons.png) -324px -36px;}
+a.ui-icon11 span {background:url(../images/button-icons.png) -0px -72px;}
+a.ui-icon12 span {background:url(../images/button-icons.png) -36px -72px;}
+a.ui-icon13 span {background:url(../images/button-icons.png) -72px -72px;}
+a.ui-icon14 span {background:url(../images/button-icons.png) -108px -72px;}
+a.ui-icon15 span {background:url(../images/button-icons.png) -144px -72px;}
+a.ui-icon16 span {background:url(../images/button-icons.png) -180px -72px;}
+a.ui-icon17 span {background:url(../images/button-icons.png) -216px -72px;}
+a.ui-icon18 span {background:url(../images/button-icons.png) -252px -72px;}
+a.ui-icon19 span {background:url(../images/button-icons.png) -288px -72px;}
+a.ui-icon20 span {background:url(../images/button-icons.png) -324px -72px;}
+a.ui-icon21 span {background:url(../images/button-icons.png) -0px -108px;}
+a.ui-icon22 span {background:url(../images/button-icons.png) -36px -108px;}
+a.ui-icon23 span {background:url(../images/button-icons.png) -72px -108px;}
+a.ui-icon24 span {background:url(../images/button-icons.png) -108px -108px;}
+a.ui-icon25 span {background:url(../images/button-icons.png) -144px -108px;}
+a.ui-icon26 span {background:url(../images/button-icons.png) -180px -108px;}
+a.ui-icon27 span {background:url(../images/button-icons.png) -216px -108px;}
+a.ui-icon28 span {background:url(../images/button-icons.png) -252px -108px;}
+a.ui-icon29 span {background:url(../images/button-icons.png) -288px -108px;}
+a.ui-icon30 span {background:url(../images/button-icons.png) -324px -108px;}
+a.ui-icon31 span {background:url(../images/button-icons.png) -0px -144px;}
+a.ui-icon32 span {background:url(../images/button-icons.png) -36px -144px;}
+a.ui-icon33 span {background:url(../images/button-icons.png) -72px -144px;}
+a.ui-icon34 span {background:url(../images/button-icons.png) -108px -144px;}
+a.ui-icon35 span {background:url(../images/button-icons.png) -144px -144px;}
+a.ui-icon36 span {background:url(../images/button-icons.png) -180px -144px;}
+a.ui-icon37 span {background:url(../images/button-icons.png) -216px -144px;}
+a.ui-icon38 span {background:url(../images/button-icons.png) -252px -144px;}
+a.ui-icon39 span {background:url(../images/button-icons.png) -288px -144px;}
+a.ui-icon40 span {background:url(../images/button-icons.png) -324px -144px;}
+a.ui-icon41 span {background:url(../images/button-icons.png) -0px -180px;}
+a.ui-icon42 span {background:url(../images/button-icons.png) -36px -180px;}
+a.ui-icon43 span {background:url(../images/button-icons.png) -72px -180px;}
+a.ui-icon44 span {background:url(../images/button-icons.png) -108px -180px;}
+a.ui-icon45 span {background:url(../images/button-icons.png) -144px -180px;}
+a.ui-icon46 span {background:url(../images/button-icons.png) -180px -180px;}
+a.ui-icon47 span {background:url(../images/button-icons.png) -216px -180px;}
+a.ui-icon48 span {background:url(../images/button-icons.png) -252px -180px;}
+a.ui-icon49 span {background:url(../images/button-icons.png) -288px -180px;}
+a.ui-icon50 span {background:url(../images/button-icons.png) -324px -180px;}
+a.ui-icon51 span {background:url(../images/button-icons.png) -0px -216px;}
+a.ui-icon52 span {background:url(../images/button-icons.png) -36px -216px;}
+a.ui-icon53 span {background:url(../images/button-icons.png) -72px -216px;}
+a.ui-icon54 span {background:url(../images/button-icons.png) -108px -216px;}
+a.ui-icon55 span {background:url(../images/button-icons.png) -144px -216px;}
+a.ui-icon56 span {background:url(../images/button-icons.png) -180px -216px;}
+a.ui-icon57 span {background:url(../images/button-icons.png) -216px -216px;}
+a.ui-icon58 span {background:url(../images/button-icons.png) -252px -216px;}
+a.ui-icon59 span {background:url(../images/button-icons.png) -288px -216px;}
+a.ui-icon60 span {background:url(../images/button-icons.png) -324px -216px;}
+a.ui-icon61 span {background:url(../images/button-icons.png) -0px -252px;}
+a.ui-icon62 span {background:url(../images/button-icons.png) -36px -252px;}
+a.ui-icon63 span {background:url(../images/button-icons.png) -72px -252px;}
+a.ui-icon64 span {background:url(../images/button-icons.png) -108px -252px;}
+a.ui-icon65 span {background:url(../images/button-icons.png) -144px -252px;}
+a.ui-icon66 span {background:url(../images/button-icons.png) -180px -252px;}
+a.ui-icon67 span {background:url(../images/button-icons.png) -216px -252px;}
+a.ui-icon68 span {background:url(../images/button-icons.png) -252px -252px;}
+a.ui-icon69 span {background:url(../images/button-icons.png) -288px -252px;}
+a.ui-icon70 span {background:url(../images/button-icons.png) -324px -252px;}
+a.ui-icon71 span {background:url(../images/button-icons.png) -0px -288px;}
+a.ui-icon72 span {background:url(../images/button-icons.png) -36px -288px;}
+a.ui-icon73 span {background:url(../images/button-icons.png) -72px -288px;}
+a.ui-icon74 span {background:url(../images/button-icons.png) -108px -288px;}
+a.ui-icon75 span {background:url(../images/button-icons.png) -144px -288px;}
+a.ui-icon76 span {background:url(../images/button-icons.png) -180px -288px;}
+a.ui-icon77 span {background:url(../images/button-icons.png) -216px -288px;}
+a.ui-icon78 span {background:url(../images/button-icons.png) -252px -288px;}
+a.ui-icon79 span {background:url(../images/button-icons.png) -288px -288px;}
+a.ui-icon80 span {background:url(../images/button-icons.png) -324px -288px;}
+a.ui-icon81 span {background:url(../images/button-icons.png) -0px -324px;}
+a.ui-icon82 span {background:url(../images/button-icons.png) -36px -324px;}
+a.ui-icon83 span {background:url(../images/button-icons.png) -72px -324px;}
+a.ui-icon84 span {background:url(../images/button-icons.png) -108px -324px;}
+a.ui-icon85 span {background:url(../images/button-icons.png) -144px -324px;}
+a.ui-icon86 span {background:url(../images/button-icons.png) -180px -324px;}
+a.ui-icon87 span {background:url(../images/button-icons.png) -216px -324px;}
+a.ui-icon88 span {background:url(../images/button-icons.png) -252px -324px;}
+a.ui-icon89 span {background:url(../images/button-icons.png) -288px -324px;}
+a.ui-icon90 span {background:url(../images/button-icons.png) -324px -324px;}
+a.ui-icon91 span {background:url(../images/button-icons.png) -0px -360px;}
+a.ui-icon92 span {background:url(../images/button-icons.png) -36px -360px;}
+a.ui-icon93 span {background:url(../images/button-icons.png) -72px -360px;}
+a.ui-icon94 span {background:url(../images/button-icons.png) -108px -360px;}
+a.ui-icon95 span {background:url(../images/button-icons.png) -144px -360px;}
+a.ui-icon96 span {background:url(../images/button-icons.png) -180px -360px;}
+a.ui-icon97 span {background:url(../images/button-icons.png) -216px -360px;}
+a.ui-icon98 span {background:url(../images/button-icons.png) -252px -360px;}
+a.ui-icon99 span {background:url(../images/button-icons.png) -288px -360px;}
+a.ui-icon100 span {background:url(../images/button-icons.png) -324px -360px;}
+a.ui-icon101 span {background:url(../images/button-icons.png) -0px -396px;}
+a.ui-icon102 span {background:url(../images/button-icons.png) -36px -396px;}
+a.ui-icon103 span {background:url(../images/button-icons.png) -72px -396px;}
+a.ui-icon104 span {background:url(../images/button-icons.png) -108px -396px;}
+a.ui-icon105 span {background:url(../images/button-icons.png) -144px -396px;}
+a.ui-icon106 span {background:url(../images/button-icons.png) -180px -396px;}
+a.ui-icon107 span {background:url(../images/button-icons.png) -216px -396px;}
+a.ui-icon108 span {background:url(../images/button-icons.png) -252px -396px;}
+a.ui-icon109 span {background:url(../images/button-icons.png) -288px -396px;}
+a.ui-icon110 span {background:url(../images/button-icons.png) -324px -396px;}
+a.ui-icon111 span {background:url(../images/button-icons.png) -0px -432px;}
+a.ui-icon112 span {background:url(../images/button-icons.png) -36px -432px;}
+a.ui-icon113 span {background:url(../images/button-icons.png) -72px -432px;}
+a.ui-icon114 span {background:url(../images/button-icons.png) -108px -432px;}
+a.ui-icon115 span {background:url(../images/button-icons.png) -144px -432px;}
+a.ui-icon116 span {background:url(../images/button-icons.png) -180px -432px;}
+a.ui-icon117 span {background:url(../images/button-icons.png) -216px -432px;}
+a.ui-icon118 span {background:url(../images/button-icons.png) -252px -432px;}
+a.ui-icon119 span {background:url(../images/button-icons.png) -288px -432px;}
+a.ui-icon120 span {background:url(../images/button-icons.png) -324px -432px;}
+a.ui-icon121 span {background:url(../images/button-icons.png) -0px -468px;}
+a.ui-icon122 span {background:url(../images/button-icons.png) -36px -468px;}
+a.ui-icon123 span {background:url(../images/button-icons.png) -72px -468px;}
+a.ui-icon124 span {background:url(../images/button-icons.png) -108px -468px;}
+a.ui-icon125 span {background:url(../images/button-icons.png) -144px -468px;}
+a.ui-icon126 span {background:url(../images/button-icons.png) -180px -468px;}
+a.ui-icon127 span {background:url(../images/button-icons.png) -216px -468px;}
+a.ui-icon128 span {background:url(../images/button-icons.png) -252px -468px;}
+a.ui-icon129 span {background:url(../images/button-icons.png) -288px -468px;}
+a.ui-icon130 span {background:url(../images/button-icons.png) -324px -468px;}
+a.ui-icon131 span {background:url(../images/button-icons.png) -0px -504px;}
+a.ui-icon132 span {background:url(../images/button-icons.png) -36px -504px;}
+a.ui-icon133 span {background:url(../images/button-icons.png) -72px -504px;}
+a.ui-icon134 span {background:url(../images/button-icons.png) -108px -504px;}
+a.ui-icon135 span {background:url(../images/button-icons.png) -144px -504px;}
+a.ui-icon136 span {background:url(../images/button-icons.png) -180px -504px;}
+a.ui-icon137 span {background:url(../images/button-icons.png) -216px -504px;}
+a.ui-icon138 span {background:url(../images/button-icons.png) -252px -504px;}
+a.ui-icon139 span {background:url(../images/button-icons.png) -288px -504px;}
+a.ui-icon140 span {background:url(../images/button-icons.png) -324px -504px;}
+a.ui-icon141 span {background:url(../images/button-icons.png) -0px -540px;}
+a.ui-icon142 span {background:url(../images/button-icons.png) -36px -540px;}
+a.ui-icon143 span {background:url(../images/button-icons.png) -72px -540px;}
+a.ui-icon144 span {background:url(../images/button-icons.png) -108px -540px;}
+a.ui-icon145 span {background:url(../images/button-icons.png) -144px -540px;}
+a.ui-icon146 span {background:url(../images/button-icons.png) -180px -540px;}
+a.ui-icon147 span {background:url(../images/button-icons.png) -216px -540px;}
+a.ui-icon148 span {background:url(../images/button-icons.png) -252px -540px;}
+a.ui-icon149 span {background:url(../images/button-icons.png) -288px -540px;}
+a.ui-icon150 span {background:url(../images/button-icons.png) -324px -540px;}
+a.ui-icon151 span {background:url(../images/button-icons.png) -0px -576px;}
+a.ui-icon152 span {background:url(../images/button-icons.png) -36px -576px;}
+a.ui-icon153 span {background:url(../images/button-icons.png) -72px -576px;}
+a.ui-icon154 span {background:url(../images/button-icons.png) -108px -576px;}
+a.ui-icon155 span {background:url(../images/button-icons.png) -144px -576px;}
+a.ui-icon156 span {background:url(../images/button-icons.png) -180px -576px;}
+a.ui-icon157 span {background:url(../images/button-icons.png) -216px -576px;}
+a.ui-icon158 span {background:url(../images/button-icons.png) -252px -576px;}
+a.ui-icon159 span {background:url(../images/button-icons.png) -288px -576px;}
+a.ui-icon160 span {background:url(../images/button-icons.png) -324px -576px;}
+a.ui-icon161 span {background:url(../images/button-icons.png) -0px -612px;}
+a.ui-icon162 span {background:url(../images/button-icons.png) -36px -612px;}
+a.ui-icon163 span {background:url(../images/button-icons.png) -72px -612px;}
+a.ui-icon164 span {background:url(../images/button-icons.png) -108px -612px;}
+a.ui-icon165 span {background:url(../images/button-icons.png) -144px -612px;}
+a.ui-icon166 span {background:url(../images/button-icons.png) -180px -612px;}
+a.ui-icon167 span {background:url(../images/button-icons.png) -216px -612px;}
+a.ui-icon168 span {background:url(../images/button-icons.png) -252px -612px;}
+a.ui-icon169 span {background:url(../images/button-icons.png) -288px -612px;}
+a.ui-icon170 span {background:url(../images/button-icons.png) -324px -612px;}
+a.ui-icon171 span {background:url(../images/button-icons.png) -0px -648px;}
+a.ui-icon172 span {background:url(../images/button-icons.png) -36px -648px;}
+a.ui-icon173 span {background:url(../images/button-icons.png) -72px -648px;}
+a.ui-icon174 span {background:url(../images/button-icons.png) -108px -648px;}
+a.ui-icon175 span {background:url(../images/button-icons.png) -144px -648px;}
+a.ui-icon176 span {background:url(../images/button-icons.png) -180px -648px;}
+a.ui-icon177 span {background:url(../images/button-icons.png) -216px -648px;}
+a.ui-icon178 span {background:url(../images/button-icons.png) -252px -648px;}
+a.ui-icon179 span {background:url(../images/button-icons.png) -288px -648px;}
+a.ui-icon180 span {background:url(../images/button-icons.png) -324px -648px;}
+a.ui-icon181 span {background:url(../images/button-icons.png) -0px -684px;}
+a.ui-icon182 span {background:url(../images/button-icons.png) -36px -684px;}
+a.ui-icon183 span {background:url(../images/button-icons.png) -72px -684px;}
+a.ui-icon184 span {background:url(../images/button-icons.png) -108px -684px;}
+a.ui-icon185 span {background:url(../images/button-icons.png) -144px -684px;}
+a.ui-icon186 span {background:url(../images/button-icons.png) -180px -684px;}
+a.ui-icon187 span {background:url(../images/button-icons.png) -216px -684px;}
+a.ui-icon188 span {background:url(../images/button-icons.png) -252px -684px;}
+a.ui-icon189 span {background:url(../images/button-icons.png) -288px -684px;}
+a.ui-icon190 span {background:url(../images/button-icons.png) -324px -684px;}
+a.ui-icon191 span {background:url(../images/button-icons.png) -0px -720px;}
+a.ui-icon192 span {background:url(../images/button-icons.png) -36px -720px;}
+a.ui-icon193 span {background:url(../images/button-icons.png) -72px -720px;}
+a.ui-icon194 span {background:url(../images/button-icons.png) -108px -720px;}
+a.ui-icon195 span {background:url(../images/button-icons.png) -144px -720px;}
+a.ui-icon196 span {background:url(../images/button-icons.png) -180px -720px;}
+a.ui-icon197 span {background:url(../images/button-icons.png) -216px -720px;}
+a.ui-icon198 span {background:url(../images/button-icons.png) -252px -720px;}
+a.ui-icon199 span {background:url(../images/button-icons.png) -288px -720px;}
+a.ui-icon200 span {background:url(../images/button-icons.png) -324px -720px;}

@@ -51,16 +51,6 @@
 
 /* STYLES */
 /* basic */
-a, a:visited {
-  color: #096f95;
-  text-decoration: none; }
-
-a:hover {
-  color: #178cb8; }
-
-a:active {
-  color: #28abdc; }
-
 em {
   font-style: oblique; }
 
@@ -124,7 +114,7 @@ input[type="submit"] {
   margin-top: 18px; }
 
 /* end forms */
-h2 {
+h1 {
   color: #fff;
   font-weight: 300;
   font-size: 34px;
@@ -159,30 +149,83 @@ header {
   top: 340px;
   left: 50%; }
 
+#vs-container {
+  margin: 0 auto; }
+
 .artist-block {
-  float: left; }
+  float: left;
+  margin: 24px 46px; }
   .artist-block img {
     border: 1px solid #ccc; }
   .artist-block .img-container {
     padding: 8px;
+    background-color: #fff;
     -moz-box-shadow: 0 0 10px 5px black;
     -webkit-box-shadow: 0 0 10px 5px black;
-    box-shadow: 0 0 10px 5px black; }
+    box-shadow: 0 0 10px 5px black;
+    max-width: 216px; }
+  .artist-block p, .artist-block h2 {
+    width: 200px;
+    margin: 12px auto 0; }
+  .artist-block h2 {
+    margin-top: 24px;
+    font-size: 21px;
+    font-weight: bold;
+    display: block; }
+  .artist-block p {
+    margin-top: 6px; }
+  .artist-block a {
+    color: #fff;
+    display: block; }
+  .artist-block .controls {
+    margin-left: 56px;
+    margin-top: 12px; }
 
 #battle-container {
   margin: 0 auto;
-  width: 500px; }
+  width: 640px; }
+  #battle-container .vs {
+    display: block;
+    margin-top: 150px;
+    float: left; }
 
 #playlist-container {
   width: 100%;
   position: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
   bottom: 0;
   left: 0;
   height: 0;
-  background-color: rgba(0, 0, 0, 0.5); }
+  background-color: rgba(0, 0, 0, 0.75); }
+  #playlist-container .playlist-header {
+    margin: 12px 0; }
+    #playlist-container .playlist-header a {
+      color: #ff7800;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: bold;
+      text-decoration: none; }
   #playlist-container img {
     height: 80px;
     width: 80px;
     border: 3px solid #ccc;
     float: left;
     margin-left: 12px; }
+  #playlist-container #playlist-main {
+    overflow: scroll-y; }
+  #playlist-container .list-item {
+    padding: 12px 18px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2); }
+    #playlist-container .list-item .info-holder {
+      float: left;
+      text-align: left;
+      font-size: 28px; }
+    #playlist-container .list-item .image-holder {
+      float: left;
+      text-align: left;
+      margin-right: 12px;
+      font-size: 18px; }
+    #playlist-container .list-item .image-holder img {
+      width: 120px;
+      height: 120px; }

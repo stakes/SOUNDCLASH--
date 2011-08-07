@@ -47,11 +47,13 @@ APPDISPATCHER = {
                 1, 1, '9.0.0', 'expressInstall.swf', flashvars, params, attributes);
 
             // set up the controls
-            $('.play').live('click', function() {
-                track_id = $(this).parent().data('tid');
+            $('.play').live('click', function(evt) {
+                track_id = $(this).parent().parent().data('tid');
                 GLOBAL.apiswf.rdio_play(track_id);
+                evt.preventDefault();
             });
-            $('.pause').live('click', function() { 
+            $('.pause').live('click', function(evt) {
+                evt.preventDefault(); 
                 GLOBAL.apiswf.rdio_pause(); 
             });
             
@@ -107,10 +109,31 @@ APPDISPATCHER = {
                 return false;
             });
             
-            $('.artist-block a').live('click', function(evt) {
+            $('.artist-block a.like-this').live('click', function(evt) {
                 selectArtist($(this));
                 evt.preventDefault();
             })
+            
+            $('#playlist-link').live('click', function(evt) {
+                if ($(this).html() == 'Share my playlist') {
+                    $('#playlist-preview').fadeOut();
+                    $('#playlist-container').animate({
+                        height: '100%'
+                    }, 1000, function() {
+                        revealFullPlaylist();                        
+                    });
+                    $(this).html('Hide my playlist');
+                } else {
+                    hideFullPlaylist();
+                    $('#playlist-container').animate({
+                        height: 140
+                    }, 1000, function() {
+                        $('#playlist-preview').fadeIn();                        
+                    }); 
+                    $(this).html('Share my playlist');             
+                }
+                evt.preventDefault(); 
+            });
             
         },
         
@@ -199,7 +222,9 @@ createBattleView = function(artistList) {
       $("#loader-container").fadeOut(500);
       $('#battle-container').html('');
       createArtistBlock(artistList[0]);
+      $('#battle-container').append('<span class="vs">VS.</span>')
       createArtistBlock(artistList[1]);
+      $('#vs-container').fadeIn(500);
   // })
   
 };
@@ -215,13 +240,14 @@ createArtistBlock = function(artist) {
 
 selectArtist = function(el) {
 
+    $('#vs-container').fadeIn(500);
     if ($("#playlist-container").length > 0) {
       createPlaylistView();
     };
     $('#playlist-container').animate({
-        height: 120
+        height: 140
     });
-    tgt = el.parent();
+    tgt = el.parent().parent();
     obj = {};
     obj.aid = tgt.data('aid');
     obj.tid = tgt.data('tid');
@@ -261,14 +287,13 @@ createPlaylistView = function() {
 
     data = {}
     block = new EJS({url: '/javascripts/views/playlist.ejs'}).render(data);
-    $('#playlist-container').append(block);
+    $('#playlist-preview').append(block);
     
 };
 
 
 updatePlaylistView = function(artist) {
   
-    console.log(artist)
     block = new EJS({url: '/javascripts/views/playlist_item.ejs'}).render(artist);
     $('#playlist').append(block);
     
@@ -278,6 +303,31 @@ showLoader = function() {
     el = '<img src="/images/facebox/loader.gif" />'
     
 }
+
+hideFullPlaylist = function() {
+    
+    $('#playlist-main').html('');
+    
+    
+};
+
+revealFullPlaylist = function() {
+    
+    $.each(GLOBAL.playlist, function(index, value) {
+      
+      createPlaylistLine(value);  
+        
+    });
+    
+};
+
+createPlaylistLine = function(artist) {
+    
+    console.log('line item')
+    block = new EJS({url: '/javascripts/views/list_item.ejs'}).render(artist);
+    $('#playlist-main').append(block);
+    
+};
 
 
 

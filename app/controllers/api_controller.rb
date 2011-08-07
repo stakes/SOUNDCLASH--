@@ -24,6 +24,7 @@ class ApiController < ActionController::Base
       resp = EchonestApi.get_similar_to(:desc => astr)
     end
     arr = []
+    p resp.inspect
     if resp['response']['status']['code'] != 0
       finalresp = {:error => 'error'}
     else
