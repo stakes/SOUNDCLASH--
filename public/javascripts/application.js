@@ -69,43 +69,32 @@ APPDISPATCHER = {
             data = {};
             init = new EJS({url: '/javascripts/views/initial_form.ejs'}).render(data)
             $('#start-form-container').append(init);
-            $('#start-artist').live('submit', function() {
-                $('#search-artist').fadeOut(500);
-                $('#start-artist').fadeOut(500);
-                $('#text-container').fadeOut(500);
-                $("#loader-container").fadeIn(500);
-                
-                $.post('/api/similar_with_tracks',
-                    $('#start-artist').serialize(),
-                    function(data) {
-                        if (data.error) {
-                            $('#search-artist').fadeIn(1000);
-                            $('#start-artist').fadeIn(1000);
-                        } else {
-                            createBattleView(data);
-                        }
-                    }
-                );
-                return false;
-            });
+            
             $('#search-artist').live('submit', function() {
-                $('#search-artist').fadeOut(500);
-                $('#start-artist').fadeOut(500);
-                $('#text-container').fadeOut(500);
-                $("#loader-container").fadeIn(500);
-                
-                $.post('/api/search',
-                    $('#search-artist').serialize(),
-                    function(data) {
-                        console.log(data.error);
-                        if (data.error) {
-                            $('#search-artist').fadeIn(1000);
-                            $('#start-artist').fadeIn(1000);
-                        } else {
-                            createBattleView(data);
+                formval = $('#artist').val().toLowerCase();
+                if (formval == 'better than jay-z' || formval == 'better than jay z' || formval == 'better than jayz') {
+                    $('#search-artist').fadeIn(1000);
+                    $('#text-container').html('').append('<h1>COMPUTER SAYS:<br />No such thing.</h1>');
+                    $('#text-container').fadeIn(500);
+                    $("#loader-container").fadeOut(500);
+                } else {
+                    $('#search-artist').fadeOut(500);
+                    $('#text-container').fadeOut(500);
+                    $("#loader-container").fadeIn(500);
+                    $.post('/api/search',
+                        $('#search-artist').serialize(),
+                        function(data) {
+                            if (data.error) {
+                                $('#search-artist').fadeIn(1000);
+                                $('#text-container').html('').append('<h1>You did it.</h1><p>It would appear your tastes are so unique and special that we can\'t find any contenders suitable to battle it out for your approval. Try another mood, feeling, thought or the name of a band. Or head over to <a href="http://rdio.com">Rdio</a> and search their extensive catalog for something you want to listen to.</p>');
+                                $('#text-container').fadeIn(500);
+                                $("#loader-container").fadeOut(500);
+                            } else {
+                                createBattleView(data);
+                            }
                         }
-                    }
-                );
+                    );
+                }
                 return false;
             });
             

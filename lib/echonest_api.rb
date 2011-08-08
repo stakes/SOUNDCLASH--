@@ -18,7 +18,6 @@ class EchonestApi
     elsif !options[:artists].blank?
       get (API_ROOT+'artist/search?'+API_KEY+FORMAT+CGI::escape(options[:artists])+results)
     elsif !options[:desc].blank?
-      p 'go'
       get (API_ROOT+'artist/search?'+API_KEY+FORMAT+RDIO+'&description='+CGI::escape(options[:desc])+results)
     end
   end

@@ -1,14 +1,9 @@
 class ApiController < ActionController::Base
   
   def save_playlist
-    
     pl = Playlist.new
     pl.save
-    puts params[:tracks]
     params[:tracks].each do |tdata|
-      # a = Artist.new(tdata)
-      # a.playlist_id = pl.id
-      # a.save
       data = tdata[1]
       a = Artist.new
       a.playlist = pl
@@ -18,7 +13,6 @@ class ApiController < ActionController::Base
       a.tid = data['tid']
       a.image = data['image']
       a.save
-      
     end
     render :json => {:url => pl.id}
     
@@ -47,21 +41,24 @@ class ApiController < ActionController::Base
     else
       resp = EchonestApi.get_similar_to(:desc => astr)
     end
-    arr = []
-    p resp.inspect
-    if resp['response']['status']['code'] != 0
+    artists = []
+    if resp['response']['status']['code'] != 0 || 
       finalresp = {:error => 'error'}
     else
-      resp['response']['artists'][0,2].each do |r|
+      # reduce source array to only artists with Rdio id's
+      sourcearray = resp['response']['artists']
+      sourcearray.delete_if { |a| !defined? a['foreign_ids'][0]['foreign_id'] }
+      sourcearray[0,2].each do |r|
         begin
           str = r['foreign_ids'][0]['foreign_id']
+          puts str
         rescue
           str = nil
         end
-        arr.push(str.split(':')[2]) unless str.blank?
+        artists.push(str.split(':')[2]) unless str.blank?
       end
       finalresp = []
-      arr.each do |aid|
+      artists.each do |aid|
         trackresp = RdioApi.get_tracks_for(:artist_id => aid)
         artist = []
         trackresp[0,3].each do |r|
@@ -83,33 +80,39 @@ class ApiController < ActionController::Base
     p 'YES!'
     astr = params[:desc]
     resp = EchonestApi.get_artists(:desc => astr)
-    p resp.inspect
-    arr = []
+    artists = []
     if resp['response']['status']['code'] != 0
       finalresp = {:error => 'error'}
     else
-      resp['response']['artists'][0,2].each do |r|
-        begin
-          str = r['foreign_ids'][0]['foreign_id']
-        rescue
-          str = nil
+      # reduce source array to only artists with Rdio id's
+      sourcearray = resp['response']['artists']
+      sourcearray.delete_if { |a| !defined? a['foreign_ids'][0]['foreign_id'] }
+      if sourcearray.count < 2
+        finalresp = {:error => 'error'}
+      else
+        resp['response']['artists'][0,2].each do |r|
+          begin
+            str = r['foreign_ids'][0]['foreign_id']
+          rescue
+            str = nil
+          end
+          artists.push(str.split(':')[2]) unless str.blank?
         end
-        arr.push(str.split(':')[2]) unless str.blank?
-      end
-      finalresp = []
-      arr.each do |aid|
-        trackresp = RdioApi.get_tracks_for(:artist_id => aid)
-        artist = []
-        trackresp[0,3].each do |r|
-          hash = {}
-          hash['aid'] = r.artist_key
-          hash['tid'] = r.key
-          hash['image'] = r.icon
-          hash['name'] = r.artist.name
-          hash['track_name'] = r.name
-          artist.push(hash)
+        finalresp = []
+        artists.each do |aid|
+          trackresp = RdioApi.get_tracks_for(:artist_id => aid)
+          artist = []
+          trackresp[0,3].each do |r|
+            hash = {}
+            hash['aid'] = r.artist_key
+            hash['tid'] = r.key
+            hash['image'] = r.icon
+            hash['name'] = r.artist.name
+            hash['track_name'] = r.name
+            artist.push(hash)
+          end
+          finalresp.push(artist)
         end
-        finalresp.push(artist)
       end
     end
     render :json => finalresp
