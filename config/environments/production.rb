@@ -51,4 +51,5 @@ Template::Application.configure do
   ENV["TWITTER_CONSUMER_SECRET"] = ''
   ENV["FACEBOOK_APP_ID"] = ''
   ENV["FACEBOOK_APP_SECRET"] = ''
+  ENV["GOOGLE_ANALYTICS"] = 'UA-25007828-1'
 end

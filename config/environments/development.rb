@@ -28,5 +28,6 @@ Template::Application.configure do
   ENV["FACEBOOK_APP_ID"] = ''
   ENV["FACEBOOK_APP_SECRET"] = ''
   ENV["REDISTOGO_URL"] = 'redis://localhost:6379'
+  ENV["GOOGLE_ANALYTICS"] = 'TEST'
 end
 
