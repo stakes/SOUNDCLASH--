@@ -67,7 +67,7 @@ APPDISPATCHER = {
         'landing': function() {
             
             data = {};
-            init = new EJS({url: '/javascripts/views/initial_form.ejs'}).render(data)
+            init = new EJS({url: '/javascripts/views/initial_form.ejs'}).render(data);
             $('#start-form-container').append(init);
             
             $('#search-artist').live('submit', function() {
@@ -270,7 +270,6 @@ refineNextSelection = function() {
     if (arr.length > 5) {
         arr = arr.splice(arr.length-5);
     }
-    console.log('array: '+arr)
     $.post('/api/similar_with_tracks',
         {artists_array: arr, type: 'artist_string'},
         function(data) {
@@ -321,7 +320,6 @@ revealFullPlaylist = function() {
 
 createPlaylistLine = function(artist) {
     
-    console.log('line item')
     block = new EJS({url: '/javascripts/views/list_item.ejs'}).render(artist);
     $('#playlist-main').append(block);
     

@@ -42,7 +42,7 @@ class ApiController < ActionController::Base
       resp = EchonestApi.get_similar_to(:desc => astr)
     end
     artists = []
-    if resp['response']['status']['code'] != 0 || 
+    if resp['response']['status']['code'] != 0
       finalresp = {:error => 'error'}
     else
       # reduce source array to only artists with Rdio id's
@@ -51,7 +51,6 @@ class ApiController < ActionController::Base
       sourcearray[0,2].each do |r|
         begin
           str = r['foreign_ids'][0]['foreign_id']
-          puts str
         rescue
           str = nil
         end
@@ -77,7 +76,6 @@ class ApiController < ActionController::Base
   end
   
   def desc_artists_with_rdio
-    p 'YES!'
     astr = params[:desc]
     resp = EchonestApi.get_artists(:desc => astr)
     artists = []
